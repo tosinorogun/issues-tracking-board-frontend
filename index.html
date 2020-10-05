@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="Sample application developed as part of Lumatic job interview"
+    />
+    <meta name="author" content="Tosin Orogun" />
+    <title>Lumatic | Job Interview Coding Exercise</title>
+
+    <link rel="canonical" href="https://localhost/lumatic" />
+    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/dist/css/custom.css" rel="stylesheet" />
+    <link href="assets/dist/css/sticky-footer-navbar.css" rel="stylesheet" />
+  </head>
+
+  <body class="d-flex flex-column h-100">
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand text-info" href="#">Lumatic</a>
+        <span class="text-light"> | Job Interview Coding Exercise</span>
+      </nav>
+    </header>
+
+    <main role="main" class="flex-shrink-0">
+      <div class="container-fluid pb-3">
+        <h1 class="mt-5 mb-5">Issue Tracking Board</h1>
+        <div class="row justify-content-center">
+          <div class="col">
+            <div class="text-white bg-secondary px-3 py-3 rounded-top">
+              Pending Issues
+            </div>
+            <div
+              class="border border-secondary p-3 list-group"
+              id="column1"
+            ></div>
+          </div>
+
+          <div class="col">
+            <div class="text-white bg-warning px-3 py-3 rounded-top">
+              Issues In-Progress
+            </div>
+            <div
+              class="border border-warning p-3 list-group"
+              id="column2"
+            ></div>
+          </div>
+
+          <div class="col">
+            <div class="text-white bg-danger px-3 py-3 rounded-top">
+              Escalated Issues
+            </div>
+            <div class="border border-danger p-3 list-group" id="column3"></div>
+          </div>
+
+          <div class="col">
+            <div class="text-white bg-success px-3 py-3 rounded-top">
+              Resolved Issues
+            </div>
+            <div
+              class="border border-success p-3 list-group"
+              id="column4"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer mt-auto py-3">
+      <div class="container">
+        <span class="text-info">Lumatic</span>
+        <span class="text-black-50"> | Job Interview Coding Exercise</span>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/gh/RubaXa/Sortable/Sortable.min.js"></script>
+    <script src="assets/dist/js/api.js"></script>
+    
+  </body>
+</html>
