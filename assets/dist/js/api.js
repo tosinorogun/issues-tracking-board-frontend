@@ -26,11 +26,13 @@ let column = document.getElementById("column" + i);
   fetch(`${apiUrl}/issues/status/${i}`)
     .then((response) => response.json())
     .then((result) => {
-      let data = result;
+      let data = result; // Cards
       let column = document.querySelector("#column" + i);
       column.innerHTML = "";
       
-      data.forEach((card) => {
+      data.forEach((card) => { 
+        // console.log(card);
+        // I created the HTML elements for the Card
         let cardParent = document.createElement("div");
         let cardhHeader = document.createElement("div");
         let cardBody = document.createElement("div");
@@ -39,6 +41,8 @@ let column = document.getElementById("column" + i);
         let cardFooter = document.createElement("div");
         let cardFooterDiv = document.createElement("div");
         let cardFooterSpan = document.createElement("span");
+
+        // I created CSS Classes for each of the HTML elements above 
         cardParent.className = "card border-secondary list-group-item rounded mb-3";
         cardhHeader.className ="card-header font-weight-bold text-black-50 pl-2";
         cardBody.className = "card-body font-weight-light text-secondary p-2";
@@ -47,13 +51,15 @@ let column = document.getElementById("column" + i);
         cardFooter.className = "card-footer p-2 text-muted small text-right";
         cardFooterSpan.className = "text-danger font-weight-bold";
 
-        cardhHeader.innerHTML = card.issue_id;
+        // I output the data from the API response to the HTML elements
+        cardhHeader.innerHTML = card.issue_tag;
         cardP1.innerHTML = card.title;
-        cardP2.innerHTML = card.created_at;
+        cardP2.innerHTML = card.issue_date;
         cardFooterDiv.innerHTML = "Priority: ";
-        cardFooterSpan.innerHTML = card.priority_id;
+        cardFooterSpan.innerHTML = card.priority;
         cardParent.setAttribute("id", card.id);
 
+        // I build out HTML view from generated elements
         column.appendChild(cardParent);
         cardParent.appendChild(cardhHeader);
         cardParent.appendChild(cardBody);
@@ -66,7 +72,7 @@ let column = document.getElementById("column" + i);
     });
 }
 
-// Update Issues Status when Card has been moved and dropped
+// Update Issues Status after Card has been moved and dropped in a new column
 const updateIssue = async (id, target) => {
   await fetch(`${apiUrl}/issues/${id}`, {
     method: "PATCH",
@@ -75,8 +81,9 @@ const updateIssue = async (id, target) => {
     },
     body: JSON.stringify({ status_id: target }),
   })
-    .then((response) => response.text())
-    .then((result) => {
-      console.log(result);
-    });
+  .then((response) => response.text())
+  .then((result) => {
+    // Show something i.e. alert, console
+    console.log(result);
+  });
 };
